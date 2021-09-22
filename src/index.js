@@ -97,7 +97,7 @@ app.post("/withdraw", verifyIfExistsAccountCPF, (request, response) => {
   return response.status(201).send();
 });
 
-app.get("/statement/:date", verifyIfExistsAccountCPF, (request, response) => {
+app.get("/statement/date", verifyIfExistsAccountCPF, (request, response) => {
   const { customer } = request;
   const { date } = request.query;
 
