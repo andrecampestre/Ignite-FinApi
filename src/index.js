@@ -97,7 +97,7 @@ app.post("/withdraw", verifyIfExistsAccountCPF, (request, response) => {
   return response.status(201).send();
 });
 
-app.get("/statement/date", verifyIfExistsAccountCPF, (request, response) => {
+app.get("/statement/:date", verifyIfExistsAccountCPF, (request, response) => {
   const { customer } = request;
   const { date } = request.query;
 
@@ -109,7 +109,7 @@ app.get("/statement/date", verifyIfExistsAccountCPF, (request, response) => {
       new Date(dateFormat).toDateString()
   );
 
-  return response.json(customer.statement);
+  return response.json(statement);
 });
 
 app.put("/account", verifyIfExistsAccountCPF,(request, response) => {
